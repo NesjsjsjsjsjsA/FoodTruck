@@ -33,6 +33,10 @@ import kotlinx.coroutines.selects.select
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainMenu() {
+
+    val name = "Rico"
+    val name2 = "Sabroso"
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -55,7 +59,7 @@ fun MainMenu() {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
 
-                Text(text = "Comida de ...")
+                Text(text = "Comida $name")
 
                 Row(
                     horizontalArrangement = Arrangement.spacedBy(12.dp),
@@ -72,7 +76,7 @@ fun MainMenu() {
                     }
                 }
 
-                Text(text = "Comida de ...")
+                Text(text = "Comida $name2")
 
                 Row(
                     horizontalArrangement = Arrangement.spacedBy(12.dp),

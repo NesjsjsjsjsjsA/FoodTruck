@@ -29,12 +29,15 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.pdmtaller.N00133723AyalaAbarca.Data.Model.Dish
+import com.pdmtaller.N00133723AyalaAbarca.Data.Model.Restaurant
 import com.pdmtaller.N00133723AyalaAbarca.UI.Layout.PersonalBottomBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Busquedas() {
+fun Busquedas(restaurant: Restaurant) {
     var lista by remember { mutableStateOf("") }
+    var restaurant: Restaurant
 
     // Lista de ejemplo
     val allItems = listOf("Tacos", "Tortas", "Tamales", "Tlayudas", "Tlacoyos", "Tostadas")
@@ -42,7 +45,7 @@ fun Busquedas() {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Buscar Comida") }
+                title = { Text("Hora de comer!!!") }
             )
         },
         bottomBar = { PersonalBottomBar()}
@@ -67,12 +70,5 @@ fun Busquedas() {
             )
         }
     }
-}
-
-@Preview (showBackground = true)
-@Composable
-fun see2()
-{
-    Busquedas()
 }
 
