@@ -1,4 +1,4 @@
-package com.pdmtaller.N00133723AyalaAbarca.ui.theme
+package com.pdmtaller.N00133723AyalaAbarca.UI.ui
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

@@ -1,6 +1,5 @@
-package com.pdmtaller.N00133723AyalaAbarca.ui.theme
+package com.pdmtaller.N00133723AyalaAbarca.UI.ui
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
