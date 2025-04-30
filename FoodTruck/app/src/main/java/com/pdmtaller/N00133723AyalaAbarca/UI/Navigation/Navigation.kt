@@ -9,9 +9,13 @@ fun AppNavigation(navController: NavHostController) {
         composable("listas") {
             Listas(navController)
         }
+        composable("busqueda") {
+            BusquedaScreen("", navController = navController) // Sin parámetro
+        }
         composable("busqueda/{nombre}") { backStackEntry ->
             val nombre = backStackEntry.arguments?.getString("nombre") ?: ""
-            BusquedaScreen(nombre,navController)
+            BusquedaScreen(nombre,navController = navController)
         }
     }
+
 }

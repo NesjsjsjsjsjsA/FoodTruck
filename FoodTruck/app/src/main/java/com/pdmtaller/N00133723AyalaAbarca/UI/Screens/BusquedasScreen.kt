@@ -7,11 +7,13 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import com.pdmtaller.N00133723AyalaAbarca.Data.Dummy.restaurant
+import com.pdmtaller.N00133723AyalaAbarca.UI.Components.DishPresentation
 import com.pdmtaller.N00133723AyalaAbarca.UI.Layout.PersonalBottomBar
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun BusquedaScreen(restaurantName: String,navController: NavHostController) {
+fun BusquedaScreen(restaurantName: String = "",navController: NavHostController) {
     var searchText by remember { mutableStateOf("") }
 
     val restaurantFiltrado = restaurant.find { it.name == restaurantName }
@@ -46,16 +48,9 @@ fun BusquedaScreen(restaurantName: String,navController: NavHostController) {
                     }
                     items(menuFiltrado.size) { index ->
                         val dish = menuFiltrado[index]
-                        Card(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(vertical = 8.dp)
-                        ) {
-                            Column(modifier = Modifier.padding(16.dp)) {
-                                Text(text = dish.name)
-                                Text(text = dish.description)
-                            }
-                        }
+                        DishPresentation(dish = dish)
+                        Spacer(modifier = Modifier.height(12.dp))
+
                     }
                 }
             } else {

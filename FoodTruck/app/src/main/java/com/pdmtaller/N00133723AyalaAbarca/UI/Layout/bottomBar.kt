@@ -25,8 +25,7 @@ import kotlinx.coroutines.selects.select
 data class NavItem(val label: String, val icon: ImageVector, val route: String) //Declarado
 
 @Composable
-fun PersonalBottomBar(navController: NavController)
-{
+fun PersonalBottomBar(navController: NavController) {
     val navBackStackEntry = navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry.value?.destination?.route
 
@@ -36,40 +35,47 @@ fun PersonalBottomBar(navController: NavController)
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            IconButton(onClick = {
-
-                if (currentRoute!= "listas")
-                {
-                    navController.navigate("listas"){popUpTo("listas") {inclusive = true}}}
-                 },
-
-                enabled = currentRoute != "listas")
-
-            {
-                Icon(Icons.Default.List, contentDescription = "lista")
+            // Botón: Lista
+            IconButton(
+                onClick = {
+                    if (currentRoute != "listas") {
+                        navController.navigate("listas") {
+                            popUpTo("listas") { inclusive = true }
+                        }
+                    }
+                },
+                enabled = currentRoute != "listas"
+            ) {
+                Icon(Icons.Default.List, contentDescription = "Lista")
             }
 
-            IconButton(onClick = {
-
-                if(currentRoute!="BusquedasScreen")
-                {
-                    navController.navigate("BusquedasScreen"){popUpTo("BusquedasScreen") {inclusive = true}}}
-            },
-
-                enabled = currentRoute != "BusquedasScreen")
-
-            {
-                Icon(Icons.Default.Search, contentDescription = "Búsqueda")
-            }
-            IconButton(onClick = {
-
-                if (currentRoute!="Mis_ordenes")
-                {
-                    navController.navigate("Mis_ordenes"){popUpTo("Mis_ordenes"){inclusive = true} }}
-            },
-                enabled = currentRoute != "Mis_ordenes"
-
+            // Botón: Búsqueda (solo si NO estás en "listas")
+            if (currentRoute != "BusquedasScreen") {
+                IconButton(
+                    onClick = {
+                        if (currentRoute != "BusquedasScreen") {
+                            navController.navigate("BusquedasScreen") {
+                                popUpTo("BusquedasScreen") { inclusive = true }
+                            }
+                        }
+                    },
+                    enabled = currentRoute != "BusquedasScreen"
                 ) {
+                    Icon(Icons.Default.Search, contentDescription = "Búsqueda")
+                }
+            }
+
+            // Botón: Órdenes
+            IconButton(
+                onClick = {
+                    if (currentRoute != "Mis_ordenes") {
+                        navController.navigate("Mis_ordenes") {
+                            popUpTo("Mis_ordenes") { inclusive = true }
+                        }
+                    }
+                },
+                enabled = currentRoute != "Mis_ordenes"
+            ) {
                 Icon(Icons.Default.ShoppingCart, contentDescription = "Órdenes")
             }
         }
