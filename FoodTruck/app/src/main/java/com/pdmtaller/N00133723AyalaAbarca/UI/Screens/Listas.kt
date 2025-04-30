@@ -6,6 +6,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.pdmtaller.N00133723AyalaAbarca.UI.Layout.PersonalBottomBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -19,7 +20,7 @@ fun Listas(navController: NavHostController) {
                 title = { Text("Los corridos de Gustavo Lerma") }
             )
         },
-        bottomBar = { /* puedes poner tu barra si tienes una */ }
+        bottomBar = { PersonalBottomBar(navController) }
     ) { innerPadding ->
         Box(
             modifier = Modifier

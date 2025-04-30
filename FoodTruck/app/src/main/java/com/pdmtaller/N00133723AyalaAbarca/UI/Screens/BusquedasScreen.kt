@@ -4,12 +4,14 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import com.pdmtaller.N00133723AyalaAbarca.Data.Dummy.restaurant
 import com.pdmtaller.N00133723AyalaAbarca.UI.Layout.PersonalBottomBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun BusquedaScreen(restaurantName: String) {
+fun BusquedaScreen(restaurantName: String,navController: NavHostController) {
     var searchText by remember { mutableStateOf("") }
 
     val restaurantFiltrado = restaurant.find { it.name == restaurantName }
@@ -18,7 +20,7 @@ fun BusquedaScreen(restaurantName: String) {
         topBar = {
             TopAppBar(title = { Text("Hora de comer en: $restaurantName") })
         },
-        bottomBar = { PersonalBottomBar() }
+        bottomBar = { PersonalBottomBar(navController) }
     ) { innerPadding ->
         Column(
             modifier = Modifier
@@ -29,11 +31,13 @@ fun BusquedaScreen(restaurantName: String) {
             TextField(
                 value = searchText,
                 onValueChange = { searchText = it },
-                label = { Text("Buscar en el menú...") },
+                label = { Text("Haz un búsqueda!") },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(bottom = 16.dp)
             )
+
+            Text(text = "Te tenemos solo lo mejor amigo :D")
 
             if (restaurantFiltrado != null) {
                 LazyColumn {
