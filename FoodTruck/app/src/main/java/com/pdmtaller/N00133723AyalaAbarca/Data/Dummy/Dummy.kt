@@ -3,7 +3,7 @@ package com.pdmtaller.N00133723AyalaAbarca.Data.Dummy
 import com.pdmtaller.N00133723AyalaAbarca.Data.Model.Dish
 import com.pdmtaller.N00133723AyalaAbarca.Data.Model.Restaurant
 
-val restaurants = listOf(Restaurant
+val restaurant = listOf(Restaurant
     (
             id = 1,
             name = "Los taquillos de camelo",

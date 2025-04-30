@@ -25,6 +25,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.pdmtaller.N00133723AyalaAbarca.UI.Layout.PersonalBottomBar
@@ -65,14 +66,20 @@ fun MainMenu() {
                     horizontalArrangement = Arrangement.spacedBy(12.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Button(onClick = {  }) {
-                        Text("Botón 1")
+                    Button(onClick = {}
+                    ) {
+                        Text("Los taquillos \nde camelo",
+                            textAlign = TextAlign.Center)
+
                     }
                     Button(onClick = {  }) {
-                        Text("Botón 2")
+                        Text("Donas \nluis",
+                            textAlign = TextAlign.Center)
+
                     }
                     Button(onClick = { }) {
-                        Text("Botón 3")
+                        Text("Los \nbarbaros",
+                            textAlign = TextAlign.Center)
                     }
                 }
 
