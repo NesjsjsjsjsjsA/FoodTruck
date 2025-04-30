@@ -1,40 +1,15 @@
-package com.pdmtaller.N00133723AyalaAbarca.UI.Screens
-
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.List
-import androidx.compose.material.icons.filled.List
-import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.filled.ShoppingCart
-import androidx.compose.material3.BottomAppBar
-import androidx.compose.material3.Button
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.pdmtaller.N00133723AyalaAbarca.UI.Layout.PersonalBottomBar
-import kotlinx.coroutines.selects.select
+import androidx.navigation.NavHostController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainMenu() {
-
+fun Listas(navController: NavHostController) {
     val name = "Rico"
     val name2 = "Sabroso"
 
@@ -44,7 +19,7 @@ fun MainMenu() {
                 title = { Text("Los corridos de Gustavo Lerma") }
             )
         },
-                bottomBar = {PersonalBottomBar()}
+        bottomBar = { /* puedes poner tu barra si tienes una */ }
     ) { innerPadding ->
         Box(
             modifier = Modifier
@@ -59,56 +34,28 @@ fun MainMenu() {
                 verticalArrangement = Arrangement.spacedBy(16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-
                 Text(text = "Comida $name")
-
-                Row(
-                    horizontalArrangement = Arrangement.spacedBy(12.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Button(onClick = {}
-                    ) {
-                        Text("Los taquillos \nde camelo",
-                            textAlign = TextAlign.Center)
-
+                Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                    Button(onClick = {
+                        navController.navigate("busqueda/Los taquillos de camelo")
+                    }) {
+                        Text("Los taquillos \nde camelo", textAlign = TextAlign.Center)
                     }
-                    Button(onClick = {  }) {
-                        Text("Donas \nluis",
-                            textAlign = TextAlign.Center)
-
-                    }
-                    Button(onClick = { }) {
-                        Text("Los \nbarbaros",
-                            textAlign = TextAlign.Center)
+                    Button(onClick = {
+                        navController.navigate("busqueda/Donas luis")
+                    }) {
+                        Text("Donas \nluis", textAlign = TextAlign.Center)
                     }
                 }
-
                 Text(text = "Comida $name2")
-
-                Row(
-                    horizontalArrangement = Arrangement.spacedBy(12.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Button(onClick = {  }) {
-                        Text("Botón 1")
-                    }
-                    Button(onClick = {  }) {
-                        Text("Botón 2")
-                    }
-                    Button(onClick = {  }) {
-                        Text("Botón 3")
+                Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                    Button(onClick = {
+                        navController.navigate("busqueda/Los barbaros")
+                    }) {
+                        Text("Los \nbarbaros", textAlign = TextAlign.Center)
                     }
                 }
-
             }
         }
     }
-}
-
-
-@Preview (showBackground = true)
-@Composable
-fun see ()
-{
-    MainMenu()
 }
