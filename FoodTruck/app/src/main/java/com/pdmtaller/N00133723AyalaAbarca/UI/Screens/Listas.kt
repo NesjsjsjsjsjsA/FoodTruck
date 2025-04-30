@@ -17,7 +17,7 @@ fun Listas(navController: NavHostController) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Los corridos de Gustavo Lerma") }
+                title = { Text("FoodTruck") }
             )
         },
         bottomBar = { PersonalBottomBar(navController) }
