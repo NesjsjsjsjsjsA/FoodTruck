@@ -7,16 +7,22 @@ import com.pdmtaller.N00133723AyalaAbarca.UI.Screens.OrdenesScreen
 
 @Composable
 fun AppNavigation(navController: NavHostController) {
-    NavHost(navController = navController, startDestination = "listas") {
+    NavHost(navController = navController, startDestination = "Start") {
+
+        composable ("Start")
+        {
+            MainMenu(navController)
+        }
+
         composable("listas") {
             Listas(navController)
         }
         composable("busqueda") {
-            BusquedaScreen("", navController = navController) // Sin parámetro
+            BusquedaScreen("Los Guzmanes", navController) // Sin parámetro
         }
         composable("busqueda/{nombre}") { backStackEntry ->
             val nombre = backStackEntry.arguments?.getString("nombre") ?: ""
-            BusquedaScreen(nombre,navController = navController)
+            BusquedaScreen(nombre,navController)
         }
         composable("Mis_ordenes") {
             OrdenesScreen(navController)

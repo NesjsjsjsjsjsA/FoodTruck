@@ -5,11 +5,9 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.pdmtaller.N00133723AyalaAbarca.Data.Dummy.restaurant
-import com.pdmtaller.N00133723AyalaAbarca.Data.Model.Dish
 import com.pdmtaller.N00133723AyalaAbarca.UI.Layout.PersonalBottomBar
 import com.pdmtaller.N00133723AyalaAbarca.UI.Components.DishPresentation
 
@@ -42,21 +40,6 @@ fun BusquedaScreen(restaurantName: String = "", navController: NavHostController
                     .fillMaxWidth()
                     .padding(bottom = 16.dp)
             )
-
-            // Filtros por categoría
-            Row(modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp)) {
-                categorias.forEach { categoria ->
-                    Button(
-                        onClick = { categoriaSeleccionada = categoria },
-                        modifier = Modifier.padding(end = 8.dp),
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = if (categoria == categoriaSeleccionada) Color.Gray else MaterialTheme.colorScheme.primary
-                        )
-                    ) {
-                        Text(categoria)
-                    }
-                }
-            }
 
             Text(text = "Te tenemos solo lo mejor amigo :D")
 

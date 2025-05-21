@@ -21,9 +21,6 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import kotlinx.coroutines.selects.select
 
-
-data class NavItem(val label: String, val icon: ImageVector, val route: String) //Declarado
-
 @Composable
 fun PersonalBottomBar(navController: NavController) {
     val navBackStackEntry = navController.currentBackStackEntryAsState()
